@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/kb2232/appWcontext#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
