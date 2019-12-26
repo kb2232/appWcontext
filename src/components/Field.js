@@ -1,13 +1,13 @@
 import React from 'react';
-import LanguaueContext from '../context/LanguageContext'
+import {Context} from '../context/Store'
 
 class Field extends React.Component{
 
-  static contextType = LanguaueContext;//connect context object to class component;
+  static contextType = Context;//connect context object to class component;
   // it adds properties to our class;
 
   render(){
-    const text = this.context ==='english'? 'Name' : 'Orukuå'; 
+    const text = this.context.language ==='english'? 'Name' : 'Orukuå'; 
     return(
       <div className="ui field">
           <label>{text}</label>
@@ -17,5 +17,5 @@ class Field extends React.Component{
   }
 }
  //Another of connecting to the class is :
- //Field.contextType = LanguaueContext;
+ //Field.contextType = ContextStore;
 export default Field;

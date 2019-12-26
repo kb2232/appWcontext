@@ -1,15 +1,10 @@
 import React from 'react';
 import UserCreate from './UserCreate';
-import LanguageContext from '../context/LanguageContext';
-import ColorContext from '../context/ColorContext';
+import {ContextStore} from '../context/Store';
 import LanguageSelector from './LanguageSelector'
 
 class App extends React.Component{
 
-  state={
-    language:'english',
-    color:'red'
-  }
 
   onLanguageChange=(language)=>{
     this.setState({language})
@@ -17,13 +12,10 @@ class App extends React.Component{
   render(){
     return(
       <div className="flex-container">
-        <LanguageSelector onLanguageChange={this.onLanguageChange} />
-        
-          <LanguageContext.Provider value={this.state.language}>
-            <ColorContext.Provider value={this.state.color}>
-              <UserCreate />
-            </ColorContext.Provider>
-          </LanguageContext.Provider>
+          <ContextStore>
+            <LanguageSelector />
+            <UserCreate />
+          </ContextStore>
       </div>
     )
   }
